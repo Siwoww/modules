@@ -1,4 +1,4 @@
 variable "vpc_cidr" {}
 variable "subnet_cidr" {}
 variable "route_cidr_block" {}
-variable "region" {}
+variable "main_region" {}
