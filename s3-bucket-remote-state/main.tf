@@ -1,7 +1,6 @@
 resource "aws_s3_bucket" "main" {
-  bucket = "siwoww-test-bucket-001"
+  bucket = var.bucket_name
   tags = {
     Name = var.bucket_name
-    Environment = var.environment
   }
 }
