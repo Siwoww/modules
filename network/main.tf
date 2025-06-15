@@ -5,14 +5,14 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "main" {
   vpc_id = aws_vpc.main.id
   cidr_block = var.subnet_cidr
-  map_public_ip_on_launch = true #aggiunto da gpt
+  #map_public_ip_on_launch = true #aggiunto da gpt
 }
 
 resource "aws_internet_gateway" "main_gw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "main"
+    Name = var.gw_name
   }
 }
 
@@ -24,13 +24,8 @@ resource "aws_route_table" "main_route" {
     gateway_id = aws_internet_gateway.main_gw.id
   }
 
-  /*route {
-    ipv6_cidr_block        = "::/0"
-    egress_only_gateway_id = aws_egress_only_internet_gateway.example.id
-  }*/
-
   tags = {
-    Name = "main_route"
+    Name = var.route_name
   }
 }
 
