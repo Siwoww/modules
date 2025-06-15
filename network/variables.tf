@@ -5,6 +5,7 @@ variable "route_cidr_block" {}
 variable "gw_name" {
     type = string
 }
+
 variable "route_name" {
     type = string
 }
